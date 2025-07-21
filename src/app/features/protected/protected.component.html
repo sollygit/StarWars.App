@@ -1,0 +1,38 @@
+<app-page-layout>
+  <div class="content-layout">
+    <h1 id="page-title" class="content__title">
+      <a href="{{ starwarsApiUrl }}" target="_blank">Starwars API</a>
+    </h1>
+    <div class="content__body">
+      <p id="page-description">
+        <span>Authnticated users only can view this page.</span>
+      </p>
+      <table *ngIf="items.length > 0; else error" mat-table [dataSource]="items" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element">
+            <a href="javascript:;">{{ element.id }}</a>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+        <ng-container matColumnDef="poster">
+          <th mat-header-cell *matHeaderCellDef> Poster </th>
+          <td mat-cell *matCellDef="let element"> {{element.poster}} </td>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.price | currency:'USD'}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <ng-template #error>
+        <pre>{{ message }}</pre>
+      </ng-template>
+    </div>
+  </div>
+</app-page-layout>

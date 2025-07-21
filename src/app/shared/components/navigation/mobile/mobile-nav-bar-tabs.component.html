@@ -1,0 +1,12 @@
+<div class="mobile-nav-bar__tabs">
+  <app-mobile-nav-bar-tab path="/profile" label="Profile"
+    (mobileNavBarTabClick)="onMobileNavBarTabClick($event)"></app-mobile-nav-bar-tab>
+  <app-mobile-nav-bar-tab path="/products" label="Products"
+    (mobileNavBarTabClick)="onMobileNavBarTabClick($event)"></app-mobile-nav-bar-tab>
+  <ng-container *ngIf="isAuthenticated$ | async">
+    <app-mobile-nav-bar-tab path="/starwars" label="Starwars"
+      (mobileNavBarTabClick)="onMobileNavBarTabClick($event)"></app-mobile-nav-bar-tab>
+    <app-mobile-nav-bar-tab path="/admin" label="Admin"
+      (mobileNavBarTabClick)="onMobileNavBarTabClick($event)"></app-mobile-nav-bar-tab>
+  </ng-container>
+</div>
