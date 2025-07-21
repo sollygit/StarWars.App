@@ -7,10 +7,11 @@ import { environment as env } from '../../../environments/environment';
   templateUrl: './protected.component.html',
 })
 export class ProtectedComponent implements OnInit {
-    items: MovieModel[] = [];
-    displayedColumns: string[] = ['id', 'title', 'poster', 'price'];
-    starwarsApiUrl: string = env.api.starwarsApiUrl;
-    message: string = '';
+  loading: boolean = true;
+  items: MovieModel[] = [];
+  displayedColumns: string[] = ['id', 'title', 'poster', 'price'];
+  starwarsApiUrl: string = env.api.starwarsApiUrl;
+  message: string = '';
 
   constructor(public messageService: MessageService) { }
 
@@ -20,10 +21,12 @@ export class ProtectedComponent implements OnInit {
       if (data) {
         this.items = data as MovieModel[];
         this.items.map(m => m.id = m.id.toUpperCase());
+        this.loading = false;
       }
 
       if (error) {
         this.message = JSON.stringify(error, null, 2);
+        this.loading = false;
       }
     });
   }

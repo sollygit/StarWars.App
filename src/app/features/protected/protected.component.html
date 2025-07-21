@@ -5,7 +5,7 @@
     </h1>
     <div class="content__body">
       <p id="page-description">
-        <span>Authnticated users only can view this page.</span>
+        <span>Authenticated users only can view this page.</span>
       </p>
       <table *ngIf="items.length > 0; else error" mat-table [dataSource]="items" class="mat-elevation-z8">
         <ng-container matColumnDef="id">
@@ -34,5 +34,6 @@
         <pre>{{ message }}</pre>
       </ng-template>
     </div>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   </div>
 </app-page-layout>
