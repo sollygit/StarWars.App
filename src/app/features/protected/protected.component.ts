@@ -5,6 +5,7 @@ import { environment as env } from '../../../environments/environment';
 @Component({
   selector: 'app-protected',
   templateUrl: './protected.component.html',
+  styleUrls: ['./protected.component.css']
 })
 export class ProtectedComponent implements OnInit {
   loading: boolean = true;

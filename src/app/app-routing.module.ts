@@ -16,7 +16,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'products',
+    path: 'movies',
     loadChildren: () =>
       import('./features/public/public.module').then((m) => m.PublicModule),
   },

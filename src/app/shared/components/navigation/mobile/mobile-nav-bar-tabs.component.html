@@ -1,7 +1,7 @@
 <div class="mobile-nav-bar__tabs">
   <app-mobile-nav-bar-tab path="/profile" label="Profile"
     (mobileNavBarTabClick)="onMobileNavBarTabClick($event)"></app-mobile-nav-bar-tab>
-  <app-mobile-nav-bar-tab path="/products" label="Products"
+  <app-mobile-nav-bar-tab path="/movies" label="Movies"
     (mobileNavBarTabClick)="onMobileNavBarTabClick($event)"></app-mobile-nav-bar-tab>
   <ng-container *ngIf="isAuthenticated$ | async">
     <app-mobile-nav-bar-tab path="/starwars" label="Starwars"

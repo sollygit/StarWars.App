@@ -13,7 +13,7 @@ export class MessageService {
   private httpClient = inject(HttpClient)
 
   getPublicResource() {
-    return this.httpClient.get<any[]>('assets/products.json');
+    return this.httpClient.get<any[]>('assets/movies.json');
   }
 
   getProtectedResource = (): Observable<ApiResponseModel> => {

@@ -45,6 +45,7 @@
 }
 
 .nav-bar__logo {
+  width: auto;
   height: 2.0rem;
 }
 
@@ -128,6 +129,7 @@
   }
 
   .nav-bar__logo {
+    width: auto;
     height: 2.0rem;
   }
 
@@ -169,6 +171,7 @@
   }
 
   .nav-bar__logo {
+    width: auto;
     height: 2.5rem;
   }
 

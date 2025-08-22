@@ -1,42 +1,36 @@
 <app-page-layout>
   <div class="content-layout">
     <h1 class="content__title">
-      <a href="assets/products.json" target="_blank">Products</a>
+      <a href="assets/movies.json" target="_blank">Movies.JSON</a>
     </h1>
     <div class="content__body">
       <p id="page-description">
         <span>All users can view this public page.</span>
       </p>
-      <table *ngIf="products.length > 0; else error" mat-table [dataSource]="products" class="mat-elevation-z8">
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> ID </th>
-          <td mat-cell *matCellDef="let element">
-            <a href="javascript:;">{{element.id}}</a>
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-        <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef> Description </th>
-          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-        </ng-container>
-        <ng-container matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef> Price </th>
-          <td mat-cell *matCellDef="let element"> {{element.price | currency:'USD'}} </td>
-        </ng-container>
-        <ng-container matColumnDef="quantity">
-          <th mat-header-cell *matHeaderCellDef> Quantity </th>
-          <td mat-cell *matCellDef="let element"> {{element.quantity | number}} </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <table *ngIf="items.length > 0" class="table table-bordred table-striped table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Poster</th>
+            <th>Year</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of items">
+            <td>
+              <a href="javascript:;" class="vertical-mid">{{ movie.movieId }}</a>
+            </td>
+            <td>{{ movie.title }}</td>
+            <td>
+              <a href="{{movie.poster}}" target="_blank" class="vertical-mid">{{ movie.poster }}</a>
+            </td>
+            <td>{{ movie.year }}</td>
+            <td>{{ movie.price | currency }}</td>
+          </tr>
+        </tbody>
       </table>
-      <ng-template #error>
-        <pre>{{ message }}</pre>
-      </ng-template>
     </div>
   </div>
 </app-page-layout>
