@@ -4,34 +4,9 @@
 
 This TypeScript code sample demonstrates how to build a Single-Page Application (SPA) using Angular. This Angular code sample builds the API server using Angular class components.
 
-## Set Up and Run the Angular Project
+<img width="1511" height="510" alt="image" src="https://github.com/user-attachments/assets/180ee03a-662b-4de3-9d30-7bf461e695f8" />
+<img width="414" height="645" alt="image" src="https://github.com/user-attachments/assets/9255bcdf-d41e-41f1-be4a-2a93ddcc21d4" />
+<img width="1501" height="661" alt="image" src="https://github.com/user-attachments/assets/77f6ab63-22f1-4e12-99ac-c2aa4d458cd1" />
 
-Install the project dependencies:
 
-```bash
-npm install
-```
-
-The compatible API server runs on `http://localhost:6060` by default. As such, to connect your Angular application with that API server, create a `.env` file under the root project directory and populate it with the following environment variables:
-
-```bash
-API_SERVER_URL=http://localhost:6060
-```
-
-Setup environment.ts
-```bash
-npm run env
-```
-
-Next, execute the following command to run the JSON server API:
-
-```bash
-npm run api
-```
-
-Finally, open another terminal tab and execute this command to run your Angular application:
-
-```bash
-npm start
-```
 
