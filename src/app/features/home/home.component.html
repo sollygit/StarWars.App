@@ -1,3 +1,8 @@
 <app-page-layout>
   <app-hero-banner></app-hero-banner>
+  <div>
+    <mat-slide-toggle class="float-left mt-2" (click)="toggleSlide()" [(ngModel)]="isActive">{{isActive ? 'Yes' : 'No'}}</mat-slide-toggle>
+    <div class="my-1"></div>
+    <a [routerLink]="['/']" class="btn btn-primary">Home</a>
+  </div>
 </app-page-layout>
