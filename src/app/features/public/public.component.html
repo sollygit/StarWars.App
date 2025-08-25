@@ -1,36 +1,22 @@
 <app-page-layout>
   <div class="content-layout">
     <h1 class="content__title">
-      <a href="assets/movies.json" target="_blank">Movies JSON</a>
+      <a href="assets/movies.json" target="_blank">JSON File</a>
     </h1>
     <div class="content__body">
       <p id="page-description">
         <span>All users can view this public page.</span>
       </p>
-      <table *ngIf="items.length > 0" class="table table-bordred table-striped table-hover">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Poster</th>
-            <th>Year</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let movie of items">
-            <td>
-              <a href="javascript:;" class="vertical-mid">{{ movie.movieId }}</a>
-            </td>
-            <td>{{ movie.title }}</td>
-            <td>
-              <a href="{{movie.poster}}" target="_blank" class="vertical-mid">{{ movie.poster }}</a>
-            </td>
-            <td>{{ movie.year }}</td>
-            <td>{{ movie.price | currency }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <mat-card *ngFor="let movie of items" class="card">
+        <mat-card-header>
+          <mat-card-title>{{movie.title}}</mat-card-title>
+          <mat-card-subtitle>${{movie.price}} / {{movie.year}} / <a href="javascript:;" class="vertical-mid">{{ movie.id }}</a>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <img src="{{ movie.poster }}" alt="poster" />
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </app-page-layout>

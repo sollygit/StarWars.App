@@ -29,6 +29,7 @@
           </tr>
         </tbody>
       </table>
+      <a *ngIf="items.length > 0" [routerLink]="['/profile']" class="btn btn-primary">Profile</a>
       <pre *ngIf="!loading">{{ message }}</pre>
     </div>
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>

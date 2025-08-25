@@ -8,6 +8,10 @@ import { map } from 'rxjs/operators';
 })
 export class ProfileComponent {
   private auth = inject(AuthService);
+  public isActive = true;
+
+  public toggleSlide(): void {
+  }
 
   title = 'Decoded ID Token';
   user$ = this.auth.user$;
