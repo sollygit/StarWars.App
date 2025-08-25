@@ -35,8 +35,7 @@
           </tr>
         </tbody>
       </table>
-      <a *ngIf="items.length > 0" [routerLink]="['/']" class="btn btn-primary">New</a>
-      <pre *ngIf="!loading">{{ message }}</pre>
+      <a *ngIf="items.length > 0" href="javascript:;" (click)="create()" class="btn btn-primary">Create</a>
     </div>
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   </div>

@@ -54,16 +54,41 @@ export class MovieService {
     );
   };
 
-  delete = (id: string): Observable<void> => {
+  delete = (id: string): Observable<ApiResponseModel> => {
     const config: RequestConfigModel = {
       url: `${env.api.starwarsApiUrl}/api/movie/${id}`,
       method: 'DELETE',
+      headers: {},
+    };
+    return this.externalApiService.callExternalApi(config).pipe(
+      mergeMap((response) => {
+        const { data, error } = response;
+        return of({
+          data: data ? (data as MovieModel) : null,
+          error,
+        });
+      })
+    );
+  }
+
+  create = (movie: MovieModel): Observable<ApiResponseModel> => {
+    const config: RequestConfigModel = {
+      url: `${env.api.starwarsApiUrl}/api/movie`,
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
+      body: movie
     };
     return this.externalApiService.callExternalApi(config).pipe(
-      mergeMap(() => of(void 0))
+      mergeMap((response) => {
+        const { data, error } = response;
+        return of({
+          data: data ? (data as MovieModel) : null,
+          error,
+        });
+      })
     );
-  };
+  }
+
 }

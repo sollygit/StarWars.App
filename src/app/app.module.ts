@@ -23,8 +23,20 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
             ...env.auth0,
             httpInterceptor: {
               allowedList: [
-                `${env.api.starwarsApiUrl}/api/movie/protected`,
-                `${env.api.starwarsApiUrl}/api/movie/secured`
+                {
+                  uri: `${env.api.starwarsApiUrl}/api/movie/protected`
+                },
+                {
+                  uri: `${env.api.starwarsApiUrl}/api/movie/secured`
+                },
+                {
+                  uri: `${env.api.starwarsApiUrl}/api/movie`,
+                  httpMethod: 'POST'
+                },
+                {
+                  uri: `${env.api.starwarsApiUrl}/api/movie/*`,
+                  httpMethod: 'DELETE'
+                }
               ]
             }
         })

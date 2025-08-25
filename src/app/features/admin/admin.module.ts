@@ -6,6 +6,7 @@ import { AdminComponent } from './admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+import {MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AdminComponent],
@@ -15,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatTableModule,
     MatProgressBarModule,
     MatIconModule,
+    MatSnackBarModule,
     RouterModule.forChild([
       {
         path: '',

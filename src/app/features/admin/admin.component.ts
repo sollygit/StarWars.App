@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MovieService, MovieModel } from '@app/core';
 import { environment as env } from '../../../environments/environment';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +14,7 @@ export class AdminComponent implements OnInit {
   items: MovieModel[] = [];
   displayedColumns: string[] = ['id', 'title', 'poster', 'price'];
   starwarsApiUrl: string = env.api.starwarsApiUrl;
-  message: string = '';
+  snackBar = inject(MatSnackBar);
 
   ngOnInit(): void {
     this.movieService.getAdminResource().subscribe((response) => {
@@ -24,19 +25,39 @@ export class AdminComponent implements OnInit {
         this.loading = false;
       }
       if (error) {
-        this.message = JSON.stringify(error, null, 2);
+        this.snackBar.open(JSON.stringify(error, null), 'Error');
         this.loading = false;
       }
     });
   }
 
   delete(id: string) {
-    const result = confirm('Are you sure?');
+    const result = confirm(`Are you sure you want to delete movie '${id}'?`);
     if (result) {
       this.movieService.delete(id).subscribe(() => {
         this.items = this.items.filter(m => m.id !== id);
       });
     }
+  }
+
+  create() {
+    const newMovie: MovieModel = {
+      id: 'JUST_TESTING',
+      title: 'Star Wars: Just Testing',
+      year: '1977',
+      poster: 'https://picsum.photos/id/56/640/480',
+      price: 0.00,
+      movieRatings: []
+    };
+    this.movieService.create(newMovie).subscribe((response) => {
+      const { data, error } = response;
+      if (data) {
+        this.items = [...this.items, data as MovieModel];
+      }
+      if (error) {
+        this.snackBar.open(JSON.stringify(error, null), 'Error', { duration: 3000 } );
+      }
+    });
   }
 
 }

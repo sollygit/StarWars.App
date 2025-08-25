@@ -10,8 +10,12 @@ export class ExternalApiService {
   private http = inject(HttpClient)
 
   callExternalApi = (config: RequestConfigModel): Observable<ApiResponseModel> => {
-    return this.http
-      .request<unknown>(config.method, config.url, config.headers)
+    return this.http    
+      .request<unknown>(config.method, config.url, {
+        headers: config.headers,
+        body: config.body,
+        responseType: 'json'
+      })
       .pipe(
         mergeMap((data) => {
           return of({
