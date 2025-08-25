@@ -15,15 +15,21 @@ const routes: Routes = [
       import('./features/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'profile',
-    loadChildren: () =>
-      import('./features/profile/profile.module').then((m) => m.ProfileModule),
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'movies',
     loadChildren: () =>
       import('./features/public/public.module').then((m) => m.PublicModule),
+  },
+  {
+    path: 'movie/:id',
+    loadChildren: () =>
+      // import('./features/movie/movie.module').then((m) => m.MovieModule),
+    import('./features/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    path: 'movie/edit/:id',
+    loadChildren: () =>
+      // import('./features/movie-edit/movie-edit.module').then((m) => m.MovieEditModule),
+    import('./features/admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: 'starwars',
@@ -37,6 +43,12 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./features/admin/admin.module').then((m) => m.AdminModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./features/profile/profile.module').then((m) => m.ProfileModule),
     canActivate: [AuthGuard],
   },
   {

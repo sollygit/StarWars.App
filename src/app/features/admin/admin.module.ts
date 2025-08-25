@@ -5,6 +5,7 @@ import { SharedModule } from '@app/shared';
 import { AdminComponent } from './admin.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [AdminComponent],
@@ -13,6 +14,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     SharedModule,
     MatTableModule,
     MatProgressBarModule,
+    MatIconModule,
     RouterModule.forChild([
       {
         path: '',

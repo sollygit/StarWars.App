@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService, MovieModel } from '@app/core';
+import { MovieService, MovieModel } from '@app/core';
 import { environment as env } from '../../../environments/environment';
 
 @Component({
@@ -14,10 +14,10 @@ export class ProtectedComponent implements OnInit {
   starwarsApiUrl: string = env.api.starwarsApiUrl;
   message: string = '';
 
-  constructor(public messageService: MessageService) { }
+  constructor(public movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.messageService.getProtectedResource().subscribe((response) => {
+    this.movieService.getProtectedResource().subscribe((response) => {
       const { data, error } = response;
       if (data) {
         this.items = data as MovieModel[];

@@ -1,2 +1,2 @@
 export * from './external-api.service';
-export * from './message.service';
+export * from './movie-service';

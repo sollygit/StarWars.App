@@ -7,7 +7,7 @@
       <p id="page-description">
         <span>Authenticated users only can view this page.</span>
       </p>
-      <table *ngIf="items.length > 0" class="table table-bordred table-striped table-hover">
+      <table *ngIf="items.length > 0" class="table table-sm table-bordred table-striped table-hover">
         <thead>
           <tr>
             <th>ID</th>
@@ -19,9 +19,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let movie of items">
-            <td>
-              <a href="javascript:;" class="vertical-mid">{{ movie.id }}</a>
-            </td>
+            <td><a [routerLink]="['/movie', movie.id]" class="vertical-mid">{{ movie.id }}</a></td>
             <td>{{ movie.title }}</td>
             <td>
               <a href="{{movie.poster}}" target="_blank" class="vertical-mid">{{ movie.poster }}</a>

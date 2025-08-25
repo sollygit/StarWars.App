@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MessageService, MovieModel } from '@app/core';
+import { MovieService, MovieModel } from '@app/core';
 import { environment as env } from '../../../environments/environment';
 
 @Component({
@@ -8,7 +8,7 @@ import { environment as env } from '../../../environments/environment';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  messageService = inject(MessageService);
+  movieService = inject(MovieService);
   loading: boolean = true;
   items: MovieModel[] = [];
   displayedColumns: string[] = ['id', 'title', 'poster', 'price'];
@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   message: string = '';
 
   ngOnInit(): void {
-    this.messageService.getAdminResource().subscribe((response) => {
+    this.movieService.getAdminResource().subscribe((response) => {
       const { data, error } = response;
       if (data) {
         this.items = data as MovieModel[];
@@ -28,6 +28,15 @@ export class AdminComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  delete(id: string) {
+    const result = confirm('Are you sure?');
+    if (result) {
+      this.movieService.delete(id).subscribe(() => {
+        this.items = this.items.filter(m => m.id !== id);
+      });
+    }
   }
 
 }

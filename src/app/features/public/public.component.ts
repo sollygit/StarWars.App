@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '@app/core';
+import { MovieService } from '@app/core';
 
 @Component({
   selector: 'app-public',
@@ -10,14 +10,14 @@ export class PublicComponent implements OnInit {
   items: any = [];
   displayedColumns: string[] = ['id', 'title', 'poster', 'year', 'price'];
 
-  constructor(public messageService: MessageService) {}
+  constructor(public movieService: MovieService) {}
 
   ngOnInit(): void {
     this.getMovies();
   }
 
   getMovies() {
-    this.messageService.getPublicResource()
+    this.movieService.getPublicResource()
       .subscribe((response: any[]) => {
         this.items = response;
       });

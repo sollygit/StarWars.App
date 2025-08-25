@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class MessageService {
+export class MovieService {
   private externalApiService = inject(ExternalApiService)
   private httpClient = inject(HttpClient)
 
@@ -24,11 +24,9 @@ export class MessageService {
         'content-type': 'application/json',
       },
     };
-
     return this.externalApiService.callExternalApi(config).pipe(
       mergeMap((response) => {
         const { data, error } = response;
-
         return of({
           data: data ? (data as MovieModel[]) : null,
           error,
@@ -45,16 +43,27 @@ export class MessageService {
         'content-type': 'application/json',
       },
     };
-
     return this.externalApiService.callExternalApi(config).pipe(
       mergeMap((response) => {
         const { data, error } = response;
-
         return of({
           data: data ? (data as MovieModel[]) : null,
           error,
         });
       })
+    );
+  };
+
+  delete = (id: string): Observable<void> => {
+    const config: RequestConfigModel = {
+      url: `${env.api.starwarsApiUrl}/api/movie/${id}`,
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+      },
+    };
+    return this.externalApiService.callExternalApi(config).pipe(
+      mergeMap(() => of(void 0))
     );
   };
 }

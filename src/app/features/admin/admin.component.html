@@ -5,7 +5,7 @@
       <p id="page-description">
         <span>Authenticated users with the <code>read:messages</code> permission can view this page.</span>
       </p>
-      <table *ngIf="items.length > 0" class="table table-bordred table-striped table-hover">
+      <table *ngIf="items.length > 0" class="table table-sm table-bordred table-striped table-hover">
         <thead>
           <tr>
             <th>ID</th>
@@ -13,23 +13,29 @@
             <th>Poster</th>
             <th>Year</th>
             <th>Price</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let movie of items">
-            <td>
-              <a href="javascript:;" class="vertical-mid">{{ movie.id }}</a>
-            </td>
+            <td><a [routerLink]="['/movie', movie.id]" class="vertical-mid">{{ movie.id }}</a></td>
             <td>{{ movie.title }}</td>
             <td>
               <a href="{{movie.poster}}" target="_blank" class="vertical-mid">{{ movie.poster }}</a>
             </td>
             <td>{{ movie.year }}</td>
             <td>{{ movie.price | currency }}</td>
+            <td>
+              <a [routerLink]="['/movie/edit', movie.id]" class="vertical-mid"><mat-icon class="small">edit</mat-icon></a>
+            </td>
+            <td>
+              <a href="javascript:;" (click)="delete(movie.id)" class="vertical-mid"><mat-icon class="small">delete</mat-icon></a>
+            </td>
           </tr>
         </tbody>
       </table>
-      <a *ngIf="items.length > 0" [routerLink]="['/profile']" class="btn btn-primary">Profile</a>
+      <a *ngIf="items.length > 0" [routerLink]="['/']" class="btn btn-primary">New</a>
       <pre *ngIf="!loading">{{ message }}</pre>
     </div>
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
