@@ -18,7 +18,7 @@ export class MovieService {
 
   getProtectedResource = (): Observable<ApiResponseModel> => {
     const config: RequestConfigModel = {
-      url: `${env.api.starwarsApiUrl}/api/movie/protected`,
+      url: `${env.api.starwarsApiUrl}/api/movies/protected`,
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -37,7 +37,7 @@ export class MovieService {
 
   getAdminResource = (): Observable<ApiResponseModel> => {
     const config: RequestConfigModel = {
-      url: `${env.api.starwarsApiUrl}/api/movie/secured`,
+      url: `${env.api.starwarsApiUrl}/api/movies/secured`,
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -56,7 +56,7 @@ export class MovieService {
 
   delete = (id: string): Observable<ApiResponseModel> => {
     const config: RequestConfigModel = {
-      url: `${env.api.starwarsApiUrl}/api/movie/${id}`,
+      url: `${env.api.starwarsApiUrl}/api/movies/${id}`,
       method: 'DELETE',
       headers: {},
     };
@@ -73,7 +73,7 @@ export class MovieService {
 
   create = (movie: MovieModel): Observable<ApiResponseModel> => {
     const config: RequestConfigModel = {
-      url: `${env.api.starwarsApiUrl}/api/movie`,
+      url: `${env.api.starwarsApiUrl}/api/movies`,
       method: 'POST',
       headers: {
         'content-type': 'application/json',

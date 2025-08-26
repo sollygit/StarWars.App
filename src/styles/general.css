@@ -117,13 +117,6 @@ pre {
   border-radius: 0.4rem;
 }
 
-pre.profile {
-  overflow: auto;
-  border-radius: 0.4rem;
-  color: var(--indigo);
-  background-color: var(--mat-table-background-color, var(--mat-app-surface));
-}
-
 @media only screen and (max-width: 640px) {
   .mobile-scroll-lock {
     overflow: hidden;

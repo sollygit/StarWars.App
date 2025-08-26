@@ -1,8 +1,8 @@
 <div class="nav-bar__tabs">
   <app-nav-bar-tab path="/home" label="Home">Home</app-nav-bar-tab>
-  <app-nav-bar-tab path="/movies" label="Movies"></app-nav-bar-tab>
+  <app-nav-bar-tab path="/json" label="JSON"></app-nav-bar-tab>
   <ng-container *ngIf="isAuthenticated$ | async">
-    <app-nav-bar-tab path="/starwars" label="Starwars"></app-nav-bar-tab>
+    <app-nav-bar-tab path="/movies" label="StarWars"></app-nav-bar-tab>
     <app-nav-bar-tab path="/admin" label="Admin"></app-nav-bar-tab>
   </ng-container>
   <app-nav-bar-tab path="/profile" label="Profile"></app-nav-bar-tab>

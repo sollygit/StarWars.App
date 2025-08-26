@@ -15,29 +15,29 @@ const routes: Routes = [
       import('./features/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'movies',
+    path: 'json',
     loadChildren: () =>
       import('./features/public/public.module').then((m) => m.PublicModule),
   },
   {
-    path: 'movie/:id',
-    loadChildren: () =>
-      // import('./features/movie/movie.module').then((m) => m.MovieModule),
-    import('./features/admin/admin.module').then((m) => m.AdminModule),
-  },
-  {
-    path: 'movie/edit/:id',
-    loadChildren: () =>
-      // import('./features/movie-edit/movie-edit.module').then((m) => m.MovieEditModule),
-    import('./features/admin/admin.module').then((m) => m.AdminModule),
-  },
-  {
-    path: 'starwars',
+    path: 'movies',
     loadChildren: () =>
       import('./features/protected/protected.module').then(
         (m) => m.ProtectedModule
       ),
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'movies/:id',
+    loadChildren: () =>
+      // import('./features/movie/movie.module').then((m) => m.MovieModule),
+    import('./features/protected/protected.module').then((m) => m.ProtectedModule),
+  },
+  {
+    path: 'movies/edit/:id',
+    loadChildren: () =>
+      // import('./features/movie-edit/movie-edit.module').then((m) => m.MovieEditModule),
+    import('./features/protected/protected.module').then((m) => m.ProtectedModule),
   },
   {
     path: 'admin',

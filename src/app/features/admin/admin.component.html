@@ -1,41 +1,11 @@
 <app-page-layout>
   <div class="content-layout">
-    <h1 id="page-title" class="content__title">Admin Page</h1>
+    <h1 id="page-title" class="content__title">Secured Page</h1>
     <div class="content__body">
       <p id="page-description">
-        <span>Authenticated users with the <code>read:messages</code> permission can view this page.</span>
+        <span>Authenticated users with <code>read:messages</code> permission can view this page.</span>
       </p>
-      <table *ngIf="items.length > 0" class="table table-sm table-bordred table-striped table-hover">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Poster</th>
-            <th>Year</th>
-            <th>Price</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let movie of items">
-            <td><a [routerLink]="['/movie', movie.id]" class="vertical-mid">{{ movie.id }}</a></td>
-            <td>{{ movie.title }}</td>
-            <td>
-              <a href="{{movie.poster}}" target="_blank" class="vertical-mid">{{ movie.poster }}</a>
-            </td>
-            <td>{{ movie.year }}</td>
-            <td>{{ movie.price | currency }}</td>
-            <td>
-              <a [routerLink]="['/movie/edit', movie.id]" class="vertical-mid"><mat-icon class="small">edit</mat-icon></a>
-            </td>
-            <td>
-              <a href="javascript:;" (click)="delete(movie.id)" class="vertical-mid"><mat-icon class="small">delete</mat-icon></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <a *ngIf="items.length > 0" href="javascript:;" (click)="create()" class="btn btn-primary">Create</a>
+      <pre *ngIf="result">{{ result }}</pre>
     </div>
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   </div>
