@@ -149,6 +149,10 @@ table a {
   color: var(--blue);
 }
 
+a.btn.btn-primary:hover {
+  text-decoration: none;
+}
+
 .card {
   margin-bottom: 10px;
 }

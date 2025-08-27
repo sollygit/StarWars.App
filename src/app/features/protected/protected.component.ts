@@ -10,11 +10,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProtectedComponent implements OnInit {
   movieService = inject(MovieService);
+  snackBar = inject(MatSnackBar);
   loading: boolean = true;
   items: MovieModel[] = [];
   displayedColumns: string[] = ['id', 'title', 'poster', 'price'];
   starwarsApiUrl: string = env.api.starwarsApiUrl;
-  snackBar = inject(MatSnackBar);
 
   ngOnInit(): void {
     this.movieService.getProtectedResource().subscribe((response) => {

@@ -1,0 +1,17 @@
+<app-page-layout>
+  <div class="content-layout">
+    <div class="content__body">
+      <mat-card (ngModel)="item" class="card">
+        <mat-card-header>
+          <mat-card-title>{{item.title}}</mat-card-title>
+          <mat-card-subtitle>${{item.price}} / {{item.year}} / <a [routerLink]="['/movies', item.id]" class="vertical-mid">{{ item.id }}</a>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <img src="{{ item.poster }}" alt="poster" />
+        </mat-card-content>
+      </mat-card>
+      <a [routerLink]="['/movies']" class="btn btn-primary">Back to List</a>
+    </div>
+  </div>
+</app-page-layout>

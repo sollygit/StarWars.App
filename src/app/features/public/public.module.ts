@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@app/shared';
 import { PublicComponent } from './public.component';
-import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
@@ -11,7 +10,6 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     SharedModule,
-    MatTableModule,
     MatCardModule,
     RouterModule.forChild([
       {

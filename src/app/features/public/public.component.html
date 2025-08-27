@@ -10,7 +10,7 @@
       <mat-card *ngFor="let movie of items" class="card">
         <mat-card-header>
           <mat-card-title>{{movie.title}}</mat-card-title>
-          <mat-card-subtitle>${{movie.price}} / {{movie.year}} / <a href="javascript:;" class="vertical-mid">{{ movie.id }}</a>
+          <mat-card-subtitle>${{movie.price}} / {{movie.year}} / <a [routerLink]="['/movies', movie.id]" class="vertical-mid">{{ movie.id }}</a>
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>

@@ -20,9 +20,7 @@ export class MovieService {
     const config: RequestConfigModel = {
       url: `${env.api.starwarsApiUrl}/api/movies/protected`,
       method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      },
+      headers: { 'content-type': 'application/json' }
     };
     return this.externalApiService.callExternalApi(config).pipe(
       mergeMap((response) => {
@@ -54,6 +52,23 @@ export class MovieService {
     );
   };
 
+  getById = (id: string): Observable<ApiResponseModel> => {
+    const config: RequestConfigModel = {
+      url: `${env.api.starwarsApiUrl}/api/movies/${id}`,
+      method: 'GET',
+      headers: { 'content-type': 'application/json' }
+    };
+    return this.externalApiService.callExternalApi(config).pipe(
+      mergeMap((response) => {
+        const { data, error } = response;
+        return of({
+          data: data ? (data as MovieModel) : null,
+          error,
+        });
+      })
+    );
+  }
+
   delete = (id: string): Observable<ApiResponseModel> => {
     const config: RequestConfigModel = {
       url: `${env.api.starwarsApiUrl}/api/movies/${id}`,
@@ -75,9 +90,7 @@ export class MovieService {
     const config: RequestConfigModel = {
       url: `${env.api.starwarsApiUrl}/api/movies`,
       method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
+      headers: { 'content-type': 'application/json' },
       body: movie
     };
     return this.externalApiService.callExternalApi(config).pipe(
