@@ -1,7 +1,7 @@
 <app-page-layout>
   <div class="content-layout">
     <div class="content__body">
-      <mat-card (ngModel)="item" class="card">
+      <mat-card *ngIf="item" (ngModel)="item" class="card">
         <mat-card-header>
           <mat-card-title>{{item.title}}</mat-card-title>
           <mat-card-subtitle>${{item.price}} / {{item.year}} / <a [routerLink]="['/movies', item.id]" class="vertical-mid">{{ item.id }}</a>
@@ -11,6 +11,7 @@
           <img src="{{ item.poster }}" alt="poster" />
         </mat-card-content>
       </mat-card>
+      <pre *ngIf="!item">{{ message }}</pre>
       <a [routerLink]="['/movies']" class="btn btn-primary">Back to List</a>
     </div>
   </div>

@@ -47,7 +47,7 @@ export class ProtectedComponent implements OnInit {
       title: 'Star Wars: Just Testing',
       year: '1977',
       poster: 'https://picsum.photos/id/56/640/480',
-      price: 0.00,
+      price: 999.99,
       movieRatings: []
     };
     this.movieService.create(newMovie).subscribe((response) => {
