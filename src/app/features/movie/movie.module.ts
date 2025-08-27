@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@app/shared';
 import { MovieComponent } from './movie.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [MovieComponent],
@@ -11,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
       CommonModule,
       SharedModule,
       MatCardModule,
+      MatProgressBarModule,
       RouterModule.forChild([
         {
           path: '',

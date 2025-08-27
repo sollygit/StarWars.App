@@ -1,5 +1,6 @@
 <app-page-layout>
   <div class="content-layout">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     <div class="content__body">
       <mat-card *ngIf="item" (ngModel)="item" class="card">
         <mat-card-header>
