@@ -4,5 +4,16 @@ export interface MovieModel {
   year: string;
   poster: string;
   price: number;
-  movieRatings?: any[];
+  movieRatings: MovieRating[];
 }
+export interface MovieRating {
+  rated: string;
+  released: string;
+  runtime: string;
+  genre: string;
+  director: string;
+  language: string;
+  metascore: number;
+  rating: number;
+}
+

@@ -7,36 +7,43 @@
       <p id="page-description">
         <span>Authenticated users only can view this page.</span>
       </p>
-      <table *ngIf="items.length > 0" class="table table-sm table-bordred table-striped table-hover">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Poster</th>
-            <th>Year</th>
-            <th>Price</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let movie of items">
-            <td><a [routerLink]="['/movies', movie.id]" class="vertical-mid">{{ movie.id }}</a></td>
-            <td>{{ movie.title }}</td>
-            <td>
-              <a href="{{movie.poster}}" target="_blank" class="vertical-mid">{{ movie.poster }}</a>
-            </td>
-            <td>{{ movie.year }}</td>
-            <td>{{ movie.price | currency }}</td>
-            <td>
-              <a [routerLink]="['/movies/edit', movie.id]" class="vertical-mid"><mat-icon class="small">edit</mat-icon></a>
-            </td>
-            <td>
-              <a href="javascript:void(0);" (click)="delete(movie.id)" class="vertical-mid"><mat-icon class="small">delete</mat-icon></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <mat-card *ngIf="items.length > 0" class="card">
+        <mat-card-header>
+          <mat-card-title>Movies</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <table class="table table-sm table-bordred table-striped table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Poster</th>
+                <th>Year</th>
+                <th>Price</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movie of items">
+                <td><a [routerLink]="['/movies', movie.id]" class="vertical-mid">{{ movie.id }}</a></td>
+                <td>{{ movie.title }}</td>
+                <td>
+                  <a href="{{movie.poster}}" target="_blank" class="vertical-mid">{{ movie.poster }}</a>
+                </td>
+                <td>{{ movie.year }}</td>
+                <td>{{ movie.price | currency }}</td>
+                <td>
+                  <a [routerLink]="['/movies/edit', movie.id]" class="vertical-mid"><mat-icon class="small">edit</mat-icon></a>
+                </td>
+                <td>
+                  <a href="javascript:void(0);" (click)="delete(movie.id)" class="vertical-mid"><mat-icon class="small">delete</mat-icon></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-card-content>
+      </mat-card>
       <a *ngIf="items.length > 0" href="javascript:void(0);" (click)="create()" class="btn btn-primary">Create</a>
     </div>
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>

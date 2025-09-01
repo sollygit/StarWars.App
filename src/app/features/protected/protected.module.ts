@@ -6,6 +6,7 @@ import { ProtectedComponent } from './protected.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTableModule,
     MatProgressBarModule,
     MatIconModule,
+    MatCardModule,
     MatSnackBarModule,
     RouterModule.forChild([
       {
