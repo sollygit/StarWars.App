@@ -38,8 +38,8 @@ const routes: Routes = [
   {
     path: 'movies/edit/:id',
     loadChildren: () =>
-      import('./features/movie/movie.module').then(
-        (m) => m.MovieModule
+      import('./features/movie-edit/movie-edit.module').then(
+        (m) => m.MovieEditModule
       )
   },
   {

@@ -104,4 +104,22 @@ export class MovieService {
     );
   }
 
+  update = (movie: MovieModel): Observable<ApiResponseModel> => {
+    const config: RequestConfigModel = {
+      url: `${env.api.starwarsApiUrl}/api/movies/${movie.id}`,
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: movie
+    };
+    return this.externalApiService.callExternalApi(config).pipe(
+      mergeMap((response) => {
+        const { data, error } = response;
+        return of({
+          data: data ? (data as MovieModel) : null,
+          error,
+        });
+      })
+    );
+  }
+
 }

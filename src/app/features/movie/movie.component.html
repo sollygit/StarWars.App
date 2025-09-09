@@ -5,7 +5,7 @@
       <mat-card *ngIf="item" (ngModel)="item" class="card">
         <mat-card-header>
           <mat-card-title>{{item.title}}</mat-card-title>
-          <mat-card-subtitle>${{item.price}} / {{item.year}} / <a [routerLink]="['/movies', item.id]" class="vertical-mid">{{ item.id }}</a>
+          <mat-card-subtitle>${{item.price}} / {{item.year}} / <a [routerLink]="['/movies/edit', item.id]" class="vertical-mid">{{ item.id }}</a>
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
