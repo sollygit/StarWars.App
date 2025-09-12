@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
   
 @NgModule({
   declarations: [MovieEditComponent],
@@ -19,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     MatCardModule,
     MatProgressBarModule,
+    MatButtonModule,
     RouterModule.forChild([
       {
         path: '',

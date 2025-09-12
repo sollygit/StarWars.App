@@ -33,19 +33,17 @@ export class ProtectedComponent implements OnInit {
   }
 
   delete(id: string) {
-    const result = confirm(`Are you sure you want to delete movie '${id}'?`);
-    if (result) {
-      this.movieService.delete(id).subscribe(() => {
-        this.items = this.items.filter(m => m.id !== id);
-      });
-    }
+    this.movieService.delete(id).subscribe(() => {
+      this.items = this.items.filter(m => m.id !== id);
+    });
   }
 
   create() {
     const newMovie: MovieModel = {
-      id: 'JUST_TESTING',
-      title: 'Star Wars: Just Testing',
-      year: '1977',
+      // use `` to allow string interpolation
+      id: `JUST_TESTING_${Math.random().toString(10).substring(2, 7)}`,
+      title: 'Star Wars Episode III - Just Testing (2025)',
+      year: '2025',
       poster: 'https://picsum.photos/id/56/640/480',
       price: 999.99,
       movieRatings: []

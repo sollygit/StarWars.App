@@ -8,25 +8,25 @@
                 </mat-card-header>
                 <mat-card-content>
                     <form #movieForm="ngForm" (ngSubmit)="onUpdate()">
-                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                        <mat-form-field>
                             <mat-label>Title</mat-label>
                             <input matInput name="title" [(ngModel)]="item.title" required />
                         </mat-form-field>
-                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                        <mat-form-field>
                             <mat-label>Price</mat-label>
                             <input matInput type="number" name="price" [(ngModel)]="item.price" required min="0" />
                         </mat-form-field>
-                        <mat-form-field appearance="fill" class="w-100 mb-2">
+                        <mat-form-field>
                             <mat-label>Poster URL</mat-label>
                             <input matInput name="poster" [(ngModel)]="item.poster" required pattern="https://picsum.photos/id/[0-9]+/640/480" placeholder="https://picsum.photos/id/1/640/480" />
                             <mat-hint>Use format: https://picsum.photos/id/[number]/640/480</mat-hint>
                         </mat-form-field>
-                        <div class="w-100 mb-4">
+                        <div class="w-100">
                             <img src="{{ item.poster }}" alt="poster" />
                         </div>
                         <div class="button-row">
-                            <button class="btn btn-primary" type="submit" [disabled]="movieForm.invalid">Update</button>
-                            <button type="button" (click)="onCancel()" class="btn btn-primary">Cancel</button>
+                            <button mat-raised-button color="primary" type="submit" [disabled]="movieForm.invalid">Update</button>
+                            <button mat-raised-button color="primary" type="button" (click)="onCancel()" class="btn btn-primary">Cancel</button>
                         </div>
                     </form>
                 </mat-card-content>

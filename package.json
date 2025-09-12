@@ -1,6 +1,6 @@
 {
   "name": "starwars-app",
-  "version": "0.0.0",
+  "version": "1.8.0",
   "scripts": {
     "ng": "ng",
     "env": "ts-node set-env.ts",
@@ -23,7 +23,6 @@
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
     "@auth0/auth0-angular": "^2.2.3",
-    "bootstrap": "^5.3.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.4"

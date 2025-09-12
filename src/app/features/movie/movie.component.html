@@ -5,48 +5,31 @@
       <mat-card *ngIf="item" (ngModel)="item" class="card">
         <mat-card-header>
           <mat-card-title>{{item.title}}</mat-card-title>
-          <mat-card-subtitle>${{item.price}} / {{item.year}} / <a [routerLink]="['/movies/edit', item.id]" class="vertical-mid">{{ item.id }}</a>
+          <mat-card-subtitle>${{item.price}} / {{item.year}} / <a [routerLink]="['/movies/edit', item.id]"
+              class="vertical-mid">{{ item.id }}</a>
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <img src="{{ item.poster }}" alt="poster" />
         </mat-card-content>
       </mat-card>
-      <mat-card *ngIf="item && item.movieRatings && item.movieRatings.length > 0" class="card">
-        <mat-card-header>
-          <mat-card-title>Ratings</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <table class="table table-bordred table-striped table-hover">
-            <thead>
-              <tr>
-                <th>Rated</th>
-                <th>Released</th>
-                <th>Runtime</th>
-                <th>Genre</th>
-                <th>Director</th>
-                <th>Language</th>
-                <th>Metascore</th>
-                <th>Rating</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let rating of item.movieRatings">
-                <td>{{ rating.rated }}</td>
-                <td>{{ rating.released | date }}</td>
-                <td>{{ rating.runtime }}</td>
-                <td>{{ rating.genre }}</td>
-                <td>{{ rating.director }}</td>
-                <td>{{ rating.language }}</td>
-                <td>{{ rating.metascore }}</td>
-                <td>{{ rating.rating }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </mat-card-content>
-      </mat-card>
+      <div *ngIf="item && item.movieRatings && item.movieRatings.length > 0" class="movie-ratings-row">
+        <mat-card *ngFor="let rating of item.movieRatings" class="card movie-rating-card half-width">
+          <mat-card-content>
+            <div><strong>Rated:</strong> {{ rating.rated }}</div>
+            <div><strong>Released:</strong> {{ rating.released | date }}</div>
+            <div><strong>Runtime:</strong> {{ rating.runtime }}</div>
+            <div><strong>Genre:</strong> {{ rating.genre }}</div>
+            <div><strong>Director:</strong> {{ rating.director }}</div>
+            <div><strong>Language:</strong> {{ rating.language }}</div>
+            <div><strong>Metascore:</strong> {{ rating.metascore }}</div>
+            <div><strong>Rating:</strong> {{ rating.rating }}</div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="spacer"></div>
+      <button type="button" mat-raised-button color="primary" [routerLink]="['/movies']">Back</button>
       <pre *ngIf="!item">{{ message }}</pre>
-      <a [routerLink]="['/movies']" class="btn btn-primary">Back to List</a>
     </div>
   </div>
 </app-page-layout>

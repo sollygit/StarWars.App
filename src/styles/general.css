@@ -85,6 +85,7 @@ textarea {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 button,
 input,
 select,
@@ -102,6 +103,7 @@ a {
 figure {
   margin: 0;
 }
+
 img {
   vertical-align: middle;
 }
@@ -171,4 +173,53 @@ mat-card a {
   height: 16px;
   width: 16px;
   vertical-align: middle;
+}
+
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.movie-card {
+  width: 300px;
+  min-width: 220px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 700px) {
+  .movie-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .movie-grid {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* Ensure half-width cards are actually half the container width */
+.movie-ratings-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.movie-rating-card.half-width {
+  width: 350px !important;
+  min-width: 250px;
+  margin: 0 !important;
+  flex: 1 1 350px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer {
+  margin-top: 10px;
 }

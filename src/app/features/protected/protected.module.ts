@@ -8,6 +8,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [ProtectedComponent],
@@ -19,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatCardModule,
     MatSnackBarModule,
+    MatButtonModule,
     RouterModule.forChild([
       {
         path: '',
@@ -27,4 +29,4 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ]),
   ]
 })
-export class ProtectedModule {}
+export class ProtectedModule { }
