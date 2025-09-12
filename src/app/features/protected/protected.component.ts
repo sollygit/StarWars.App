@@ -42,9 +42,9 @@ export class ProtectedComponent implements OnInit {
     const newMovie: MovieModel = {
       // use `` to allow string interpolation
       id: `JUST_TESTING_${Math.random().toString(10).substring(2, 7)}`,
-      title: 'Star Wars Episode III - Just Testing (2025)',
+      title: 'Star Wars Episode III - The Last Tester (2025)',
       year: '2025',
-      poster: 'https://picsum.photos/id/56/640/480',
+      poster: 'https://picsum.photos/id/666/640/480',
       price: 999.99,
       movieRatings: []
     };

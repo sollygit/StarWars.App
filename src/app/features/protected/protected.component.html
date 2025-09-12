@@ -27,9 +27,8 @@
           </mat-card-actions>
         </mat-card>
       </div>
-      <div class="button-row">
-        <button type="button" mat-icon-button color="primary" *ngIf="items.length > 0" (click)="create()"><mat-icon>add</mat-icon></button>
-      </div>
+      <div class="spacer"></div>
+      <button type="button" mat-icon-button color="primary" *ngIf="items.length > 0" (click)="create()"><mat-icon>add</mat-icon></button>
     </div>
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   </div>
