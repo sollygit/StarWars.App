@@ -1,6 +1,5 @@
 <app-page-layout>
     <div class="content-layout">
-        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
         <div class="content__body">
             <mat-card *ngIf="item" class="card">
                 <mat-card-header>
@@ -18,15 +17,19 @@
                         </mat-form-field>
                         <mat-form-field>
                             <mat-label>Poster URL</mat-label>
-                            <input matInput name="poster" [(ngModel)]="item.poster" required pattern="https://picsum.photos/id/[0-9]+/640/480" placeholder="https://picsum.photos/id/1/640/480" />
+                            <input matInput name="poster" [(ngModel)]="item.poster" required
+                                pattern="https://picsum.photos/id/[0-9]+/640/480"
+                                placeholder="https://picsum.photos/id/1/640/480" />
                             <mat-hint>Use format: https://picsum.photos/id/[number]/640/480</mat-hint>
                         </mat-form-field>
                         <div class="w-100">
                             <img src="{{ item.poster }}" alt="poster" />
                         </div>
                         <div class="button-row">
-                            <button mat-raised-button color="primary" type="submit" [disabled]="movieForm.invalid">Update</button>
-                            <button mat-raised-button color="primary" type="button" (click)="onCancel()" class="btn btn-primary">Cancel</button>
+                            <button mat-raised-button color="primary" type="submit"
+                                [disabled]="movieForm.invalid">Update</button>
+                            <button mat-raised-button color="primary" type="button" (click)="onCancel()"
+                                class="btn btn-primary">Cancel</button>
                         </div>
                     </form>
                 </mat-card-content>
@@ -34,4 +37,5 @@
             <pre *ngIf="!item">{{ message }}</pre>
         </div>
     </div>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 </app-page-layout>

@@ -223,3 +223,7 @@ mat-card a {
 .spacer {
   margin-top: 10px;
 }
+
+code {
+    color: fuchsia;
+}

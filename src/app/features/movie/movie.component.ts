@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { MovieService, MovieModel } from '@app/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './movie.component.css'
 })
 export class MovieComponent implements OnInit {
+  location = inject(Location);
   movieService = inject(MovieService);
   route = inject(ActivatedRoute);
   loading: boolean = true;
@@ -31,6 +33,10 @@ export class MovieComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

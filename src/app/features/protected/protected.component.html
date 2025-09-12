@@ -28,8 +28,11 @@
         </mat-card>
       </div>
       <div class="spacer"></div>
-      <button type="button" mat-icon-button color="primary" *ngIf="items.length > 0" (click)="create()"><mat-icon>add</mat-icon></button>
+      <button type="button" mat-raised-button color="primary" (click)="generate()">
+        <mat-icon>wifi_protected_setup</mat-icon>
+        <span>Generate</span>
+      </button>
     </div>
-    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
   </div>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 </app-page-layout>

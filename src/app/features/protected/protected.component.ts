@@ -13,7 +13,6 @@ export class ProtectedComponent implements OnInit {
   snackBar = inject(MatSnackBar);
   loading: boolean = true;
   items: MovieModel[] = [];
-  displayedColumns: string[] = ['id', 'title', 'poster', 'price'];
   starwarsApiUrl: string = env.api.starwarsApiUrl;
 
   ngOnInit(): void {
@@ -24,7 +23,6 @@ export class ProtectedComponent implements OnInit {
         this.items.map(m => m.id = m.id.toUpperCase());
         this.loading = false;
       }
-
       if (error) {
         this.snackBar.open(JSON.stringify(error, null), 'Error');
         this.loading = false;
@@ -38,9 +36,9 @@ export class ProtectedComponent implements OnInit {
     });
   }
 
-  create() {
+  generate() {
     const newMovie: MovieModel = {
-      id: `JUST_TESTING_${Math.random().toString(10).substring(2, 7)}`,
+      id: `TEST_${Math.random().toString(10).substring(3, 7)}`,
       title: 'Star Wars Episode III - The Last Tester (2025)',
       year: '2025',
       poster: 'https://picsum.photos/id/666/640/480',

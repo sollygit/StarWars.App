@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { MovieService, MovieModel } from '@app/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -8,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './movie-edit.component.css'
 })
 export class MovieEditComponent implements OnInit {
+  location = inject(Location);
   movieService = inject(MovieService);
   route = inject(ActivatedRoute);
   router = inject(Router);
@@ -44,7 +46,7 @@ export class MovieEditComponent implements OnInit {
     this.movieService.update(updatedMovie).subscribe((response) => {
       this.loading = false;
       if (!response.error) {
-        this.router.navigate(['/movies']);
+        this.location.back();
       } else {
         this.message = 'Update failed!';
       }
@@ -52,6 +54,7 @@ export class MovieEditComponent implements OnInit {
   }
 
   onCancel(): void {
-    this.router.navigate(['/movies']);
+    this.location.back();
   }
+
 }
