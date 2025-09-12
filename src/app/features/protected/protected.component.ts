@@ -40,7 +40,6 @@ export class ProtectedComponent implements OnInit {
 
   create() {
     const newMovie: MovieModel = {
-      // use `` to allow string interpolation
       id: `JUST_TESTING_${Math.random().toString(10).substring(2, 7)}`,
       title: 'Star Wars Episode III - The Last Tester (2025)',
       year: '2025',
