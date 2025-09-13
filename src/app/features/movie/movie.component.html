@@ -15,19 +15,19 @@
       <div *ngIf="item && item.movieRatings && item.movieRatings.length > 0" class="movie-ratings-row">
         <mat-card *ngFor="let rating of item.movieRatings" class="card movie-rating-card half-width">
           <mat-card-content>
-            <div><strong>Rated:</strong> {{ rating.rated }}</div>
-            <div><strong>Released:</strong> {{ rating.released | date }}</div>
-            <div><strong>Runtime:</strong> {{ rating.runtime }}</div>
-            <div><strong>Genre:</strong> {{ rating.genre }}</div>
-            <div><strong>Director:</strong> {{ rating.director }}</div>
-            <div><strong>Language:</strong> {{ rating.language }}</div>
-            <div><strong>Metascore:</strong> {{ rating.metascore }}</div>
-            <div><strong>Rating:</strong> {{ rating.rating }}</div>
+            <div>Rated: {{ rating.rated }}</div>
+            <div>Released: {{ rating.released | date }}</div>
+            <div>Runtime: {{ rating.runtime }}</div>
+            <div>Genre: {{ rating.genre }}</div>
+            <div>Director: {{ rating.director }}</div>
+            <div>Language: {{ rating.language }}</div>
+            <div>Metascore: {{ rating.metascore }}</div>
+            <div>Rating: {{ rating.rating }}</div>
           </mat-card-content>
         </mat-card>
       </div>
       <div class="spacer"></div>
-      <button type="button" mat-raised-button color="primary" (click)="goBack()">Back</button>
+      <button type="button" mat-raised-button (click)="goBack()">Back</button>
       <pre *ngIf="!item">{{ message }}</pre>
     </div>
   </div>

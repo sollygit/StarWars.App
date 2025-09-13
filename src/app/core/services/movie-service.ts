@@ -122,4 +122,30 @@ export class MovieService {
     );
   }
 
+  generate = (): Observable<ApiResponseModel> => {
+    let _body = {
+      id: `TEST_${Math.random().toString(10).substring(3, 7)}`,
+      title: `Generated Movie ${Math.random().toString(36).substring(2, 7)}`,
+      year: '2025',
+      poster: 'https://picsum.photos/id/666/640/480',
+      price: 999.99,
+      movieRatings: []
+    };
+    const config: RequestConfigModel = {
+      url: `${env.api.starwarsApiUrl}/api/movies`,
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: _body
+    };
+    return this.externalApiService.callExternalApi(config).pipe(
+      mergeMap((response) => {
+        const { data, error } = response;
+        return of({
+          data: data ? (data as MovieModel) : null,
+          error,
+        });
+      })
+    );
+  }
+
 }

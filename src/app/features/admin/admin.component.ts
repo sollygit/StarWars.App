@@ -31,8 +31,7 @@ export class AdminComponent implements OnInit {
       if (data) {
         this.items = data as MovieModel[];
         this.items.map(m => m.id = m.id.toUpperCase());
-        this.dataSource = new MatTableDataSource(this.items);
-        setTimeout(() => this.setSortAndPaginator());
+        setTimeout(() => this.setDataSource(this.items));
         this.loading = false;
       }
       if (error) {
@@ -42,11 +41,27 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  setSortAndPaginator() {
-    if (this.dataSource) {
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-    }
+  delete(id: string) {
+    this.movieService.delete(id).subscribe(() => {
+      this.items = this.items.filter(m => m.id !== id);
+      setTimeout(() => this.setDataSource(this.items, this.dataSource.filter));
+    });
+  }
+
+  generate() {
+    this.movieService.generate().subscribe((response) => {
+      const { data, error } = response;
+      if (data) {
+        // Insert item at the start of the array
+        this.items.unshift(data as MovieModel);
+        setTimeout(() => this.setDataSource(this.items, this.dataSource.filter));
+        this.loading = false;
+      }
+      if (error) {
+        this.result = error.message;
+        this.loading = false;
+      }
+    });
   }
 
   applyFilter(filterValue: string) {
@@ -55,40 +70,13 @@ export class AdminComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-  delete(id: string) {
-    this.movieService.delete(id).subscribe(() => {
-      this.items = this.items.filter(m => m.id !== id);
-      this.dataSource = new MatTableDataSource(this.items);
-      this.setSortAndPaginator();
-    });
-  }
-
-  generate() {
-    const newMovie: MovieModel = {
-      id: `TEST_${Math.random().toString(10).substring(3, 7)}`,
-      title: 'Star Wars Episode III - The Last Tester (2025)',
-      year: '2025',
-      poster: 'https://picsum.photos/id/666/640/480',
-      price: 999.99,
-      movieRatings: []
-    };
-    this.movieService.create(newMovie).subscribe((response) => {
-      const { data, error } = response;
-      if (data) {
-        this.items = [...this.items, data as MovieModel];
-        this.dataSource = new MatTableDataSource(this.items);
-        this.setSortAndPaginator();
-        this.loading = false;
-      }
-      if (error) {
-        this.result = error.message;
-        this.loading = false;
-      }
-    });
-  }
-
-  onRowClick(row: MovieModel) {
-    this.router.navigate(['/movies', row.id]);
+  setDataSource(items: MovieModel[], filterValue: string = '') {
+    this.dataSource = new MatTableDataSource(items);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    if (filterValue) {
+      this.applyFilter(filterValue);
+    }
   }
 
 }

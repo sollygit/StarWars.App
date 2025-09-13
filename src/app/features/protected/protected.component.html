@@ -4,9 +4,15 @@
       <a href="{{ starwarsApiUrl }}" target="_blank">StarWars API</a>
     </h1>
     <div class="content__body">
-      <p id="page-description">
-        <span>Authenticated users only can view this page.</span>
-      </p>
+      <div class="generate-bar">
+        <p id="page-description">
+          <span>Authenticated users only can view this page.</span>
+        </p>
+        <button type="button" mat-raised-button (click)="generate()">
+          <mat-icon>wifi_protected_setup</mat-icon>
+          <span>Generate</span>
+        </button>
+      </div>
       <div *ngIf="items.length > 0" class="movie-grid">
         <mat-card *ngFor="let item of items" class="movie-card">
           <mat-card-header>
@@ -20,18 +26,11 @@
             </a>
           </mat-card-content>
           <mat-card-actions>
-            <a [routerLink]="['/movies/edit', item.id]" mat-icon-button color="primary"
-              title="Edit"><mat-icon>edit</mat-icon></a>
-            <a href="javascript:void(0);" (click)="delete(item.id)" mat-icon-button color="primary"
-              title="Delete"><mat-icon>delete</mat-icon></a>
+            <a [routerLink]="['/movies/edit', item.id]" mat-icon-button title="Edit"><mat-icon>edit</mat-icon></a>
+            <a href="javascript:void(0);" (click)="delete(item.id)" mat-icon-button title="Delete"><mat-icon>delete</mat-icon></a>
           </mat-card-actions>
         </mat-card>
-      </div>
-      <div class="spacer"></div>
-      <button type="button" mat-raised-button color="primary" (click)="generate()">
-        <mat-icon>wifi_protected_setup</mat-icon>
-        <span>Generate</span>
-      </button>
+      </div>      
     </div>
   </div>
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>

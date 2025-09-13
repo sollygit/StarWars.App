@@ -37,18 +37,11 @@ export class ProtectedComponent implements OnInit {
   }
 
   generate() {
-    const newMovie: MovieModel = {
-      id: `TEST_${Math.random().toString(10).substring(3, 7)}`,
-      title: 'Star Wars Episode III - The Last Tester (2025)',
-      year: '2025',
-      poster: 'https://picsum.photos/id/666/640/480',
-      price: 999.99,
-      movieRatings: []
-    };
-    this.movieService.create(newMovie).subscribe((response) => {
+    this.movieService.generate().subscribe((response) => {
       const { data, error } = response;
       if (data) {
-        this.items = [...this.items, data as MovieModel];
+        // Insert item at the start of the array
+        this.items.unshift(data as MovieModel);
       }
       if (error) {
         this.snackBar.open(JSON.stringify(error, null), 'Error', { duration: 3000 } );

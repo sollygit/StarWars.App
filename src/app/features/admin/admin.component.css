@@ -1,5 +1,10 @@
 /* Highlight table row on hover - darker */
 ::ng-deep .mat-mdc-row:hover {
 	background-color: #e0e6ef !important;
-	cursor: pointer;
+}
+
+.search-bar {
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
