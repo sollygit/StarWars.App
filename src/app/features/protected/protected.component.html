@@ -26,8 +26,8 @@
             </a>
           </mat-card-content>
           <mat-card-actions>
-            <a [routerLink]="['/movies/edit', item.id]" mat-icon-button title="Edit"><mat-icon>edit</mat-icon></a>
-            <a href="javascript:void(0);" (click)="delete(item.id)" mat-icon-button title="Delete"><mat-icon>delete</mat-icon></a>
+            <a color="primary" [routerLink]="['/movies/edit', item.id]" mat-icon-button title="Edit"><mat-icon>edit</mat-icon></a>
+            <a color="primary" href="javascript:void(0);" (click)="delete(item.id)" mat-icon-button title="Delete"><mat-icon>delete</mat-icon></a>
           </mat-card-actions>
         </mat-card>
       </div>      
