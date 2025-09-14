@@ -8,7 +8,8 @@
     "start": "npm run env && ng serve -o",
     "build": "npm run env:prod && ng build",
     "watch": "ng build --watch --configuration development",
-    "api": "json-server --host localhost --port 6060 --watch json-server/db.json --routes json-server/routes.json"
+    "api": "json-server --host localhost --port 6060 --watch json-server/db.json --routes json-server/routes.json",
+    "deploy": "npm run build && powershell Compress-Archive -Path dist/starwars-app/* -DestinationPath dist/starwars-app.zip -Force && az webapp deploy --resource-group starwarsAppResourceGroup --name Starwars-App --src-path dist/starwars-app.zip --type zip"
   },
   "private": true,
   "dependencies": {

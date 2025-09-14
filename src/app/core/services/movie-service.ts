@@ -125,7 +125,7 @@ export class MovieService {
   generate = (): Observable<ApiResponseModel> => {
     let _body = {
       id: `TEST_${Math.random().toString(10).substring(3, 7)}`,
-      title: `Generated Movie ${Math.random().toString(36).substring(2, 7)}`,
+      title: `Star Wars: The Rise of the Generated Jedi (2025)`,
       year: '2025',
       poster: 'https://picsum.photos/id/666/640/480',
       price: 999.99,
