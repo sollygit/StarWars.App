@@ -11,6 +11,18 @@ import { HttpClient } from '@angular/common/http';
 export class MovieService {
   private externalApiService = inject(ExternalApiService)
   private httpClient = inject(HttpClient)
+  private readonly keywords = [
+    'alien',
+    'jedi',
+    'lightsaber',
+    'space',
+    'scifi',
+    'galaxy',
+    'starship',
+    'robot',
+    'spacewar',
+    'futuristic'
+  ];
 
   getPublicResource() {
     return this.httpClient.get<any[]>('assets/movies.json');
@@ -123,11 +135,13 @@ export class MovieService {
   }
 
   generate = (): Observable<ApiResponseModel> => {
+    let rnd = Math.random().toString(10).substring(3, 7);
+    let keyword = this.keywords[Math.floor(Math.random() * this.keywords.length)];
     let _body = {
-      id: `TEST_${Math.random().toString(10).substring(3, 7)}`,
+      id: `TEST_${rnd}`,
       title: `Star Wars: The Rise of the Generated Jedi (2025)`,
       year: '2025',
-      poster: 'https://picsum.photos/id/666/640/480',
+      poster: `https://loremflickr.com/640/480/${keyword},starwars?lock=123`,
       price: 999.99,
       movieRatings: []
     };
