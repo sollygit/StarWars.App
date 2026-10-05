@@ -5,7 +5,7 @@ export const environment = {
     clientId: 'P8ycmNe0T6hqxZtdD9cTwmgUtXDtEzLA',
     authorizationParams: {
       audience: 'https://demo-api-server.azurewebsites.net',
-      redirect_uri: 'https://starwars-app.azurewebsites.net/callback',
+      redirect_uri: 'https://mango-island-0f9e70a00.3.azurestaticapps.net/callback',
     },
     errorPath: '/callback',
   },
