@@ -1,7 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { MovieService, MovieModel } from '@app/core';
-import { environment as env } from '../../../environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment as env } from '../../../environments/environment';
+import { MovieService } from '../../core/services/movie-service';
+import { MovieModel } from '../../core/models/movie.model';
 
 @Component({
   selector: 'app-protected',

@@ -1,10 +1,11 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { MovieModel, MovieService } from '@app/core';
-import { environment as env } from '../../../environments/environment';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { environment as env } from '../../../environments/environment';
+import { MovieService } from '../../core/services/movie-service';
+import { MovieModel } from '../../core/models/movie.model';
 
 @Component({
   selector: 'app-admin',

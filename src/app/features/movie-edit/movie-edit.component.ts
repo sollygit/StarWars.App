@@ -1,7 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { MovieService, MovieModel } from '@app/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { MovieService } from '../../core/services/movie-service';
+import { MovieModel } from '../../core/models/movie.model';
 
 @Component({
   selector: 'app-movie-edit',

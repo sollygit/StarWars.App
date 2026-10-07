@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '@app/core';
+import { MovieService } from '../../core/services/movie-service';
 
 @Component({
   selector: 'app-public',
